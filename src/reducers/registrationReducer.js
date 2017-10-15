@@ -1,6 +1,6 @@
 import {userConstants} from "../constants/userConstants";
 
-export function registration(stete={},action) {
+export default function registration(state={},action) {
     switch (action.type){
         case userConstants.REGISTER_REQUEST:
             return {registering:true};
@@ -9,6 +9,6 @@ export function registration(stete={},action) {
         case userConstants.REGISTER_FAILURE:
             return {};
         default:
-            return state
+            return state;
     }
 }

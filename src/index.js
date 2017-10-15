@@ -1,17 +1,19 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import {Provider} from "react-redux"
-import {App} from "./components/App"
-import store from "./store"
+import App from "./components/App"
+import {store} from "./store"
+import {history} from "./helpers/history"
+import { Route, Switch } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
 
-const app = document.getElementById("app")
+ReactDOM.render((
+    <Provider store={store}>
+        <ConnectedRouter history={history}>
+            <Switch>
+                <Route path="/" component={App} />
+            </Switch>
+        </ConnectedRouter>
+    </Provider>
 
-ReactDOM.render(<Provider store={store}>
-    <Router history={hashHistory}>
-        <Route path="/" component={App}>
-            <IndexRoute component={HomePage}></IndexRoute>
-            <Route path="/login" component={LoginPage}></Route>
-            <Route path="/register" component={RegisterPage}></Route>
-        </Route>
-    </Router>
-    </Provider>,app);
+), document.getElementById('app'));
