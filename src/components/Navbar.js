@@ -24,6 +24,11 @@ export default class CustomNavbar extends React.Component {
                                 Equities
                             </Link>
                         </li>
+                        <li className="nav-item active">
+                            <Link to="/currencies" className="nav-link">
+                                Currencies
+                            </Link>
+                        </li>
                     </ul>
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">

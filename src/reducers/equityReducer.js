@@ -13,110 +13,81 @@ const initData = [
         sector:"sector2"
     },
     {
-        symbol:"t2",
-        name:"test2",
-        sector:"sector2"
+        symbol:"t3",
+        name:"test3",
+        sector:"sector3"
+    },
+    {
+        symbol:"t4",
+        name:"test4",
+        sector:"sector4"
+    },
+    {
+        symbol:"t5",
+        name:"test5",
+        sector:"sector5"
+    }
+    ,
+    {
+        symbol:"t6",
+        name:"test6",
+        sector:"sector6"
     }
 ];
-const datatypes = [
+
+const data = [
     {
-        name:"SideItem1",
-        apiKey:"KEY1"
+        name:"name1",
+        value:10
     },
     {
-        name:"SideItem2",
-        apiKey:"KEY1"
+        name:"name2",
+        value:20
     },
     {
-        name:"SideItem3",
-        apiKey:"KEY1"
+        name:"name3",
+        value:30
     },
     {
-        name:"SideItem4",
-        apiKey:"KEY1"
+        name:"nam4",
+        value:30
     },
     {
-        name:"SideItem5",
-        apiKey:"KEY1"
+        name:"name5",
+        value:30
     },
     {
-        name:"SideItem6",
-        apiKey:"KEY1"
+        name:"name6",
+        value:30
     },
     {
-        name:"SideItem7",
-        apiKey:"KEY1"
+        name:"name7",
+        value:30
     },
     {
-        name:"SideItem8",
-        apiKey:"KEY1"
+        name:"name8",
+        value:30
     },
     {
-        name:"SideItem1",
-        apiKey:"KEY1"
+        name:"name9",
+        value:30
     },
     {
-        name:"SideItem2",
-        apiKey:"KEY1"
+        name:"name10",
+        value:30
     },
     {
-        name:"SideItem3",
-        apiKey:"KEY1"
+        name:"name11",
+        value:30
     },
     {
-        name:"SideItem4",
-        apiKey:"KEY1"
+        name:"name12",
+        value:30
     },
-    {
-        name:"SideItem5",
-        apiKey:"KEY1"
-    },
-    {
-        name:"SideItem6",
-        apiKey:"KEY1"
-    },
-    {
-        name:"SideItem7",
-        apiKey:"KEY1"
-    },
-    {
-        name:"SideItem8",
-        apiKey:"KEY1"
-    },
-    {
-        name:"SideItem1",
-        apiKey:"KEY1"
-    },
-    {
-        name:"SideItem2",
-        apiKey:"KEY1"
-    },
-    {
-        name:"SideItem3",
-        apiKey:"KEY1"
-    },
-    {
-        name:"SideItem4",
-        apiKey:"KEY1"
-    },
-    {
-        name:"SideItem5",
-        apiKey:"KEY1"
-    },
-    {
-        name:"SideItem6",
-        apiKey:"KEY1"
-    },
-    {
-        name:"SideItem7",
-        apiKey:"KEY1"
-    },
-    {
-        name:"SideItem8",
-        apiKey:"KEY1"
-    },
+
+
 ];
-export default function equities(state={equities:initData,fetching:false,datatypes:datatypes},action) {
+export default function equities(state={equities:initData,fetching:false,equityData:data},action) {
     switch (action.type){
         case equityConstants.FETCH_ALL_REQUEST:
             return {
@@ -145,11 +116,6 @@ export default function equities(state={equities:initData,fetching:false,datatyp
                 ...state,
                 selectedEquity:null,
                 selectedData:null
-            };
-        case equityConstants.EQUITY_API_TYPES:
-            return{
-                ...state,
-                datatypes:action.payload
             };
         case equityConstants.SET_SELECTED_EQUITY:
             return{

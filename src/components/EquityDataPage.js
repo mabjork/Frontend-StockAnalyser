@@ -4,7 +4,10 @@ import agent from "../agent";
 import SideMenu from "./SideMenu";
 import GraphPage from "./GraphPage";
 import {equityConstants} from "../constants/equityConstants";
+import { Route, Switch,Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import  HomePage  from './HomePage';
+import NotFoundPage from "./NotFoundPage"
 
 class EquityDataPage extends React.Component {
     constructor(props) {
@@ -19,76 +22,25 @@ class EquityDataPage extends React.Component {
 
     render(){
         return (
-            <div className="row" style={style.customRow}>
+            <div className="d-flex container-fluid" style={{padding:0}}>
                 <div className="col-md-auto" style={style.sidemenu}>
-                    <SideMenu/>
+                    <SideMenu symbol={this.props.selected.symbol}/>
                 </div>
-                <div className="col" style={style.dataContainer} >
-                    <div className="jumbotron" >
-                        <div className="container">
-                            <div className="row justify-content-center">
-                                <GraphPage data={data} />
-                            </div>
-
-                        </div>
+                <div className="col" >
+                    <div className="row justify-content-center align-items-center" style={{minHeight:"92vh"}}>
+                        <Switch>
+                            <Route exact path="/equities/:symbol/:function" component={GraphPage} />
+                            <Route path='/404' component={NotFoundPage} />
+                            <Redirect from='*' to='/404' />
+                        </Switch>
                     </div>
                 </div>
             </div>
+
         );
     }
 }
-const data = [
-    {
-        name:"name1",
-        value:10
-    },
-    {
-        name:"name2",
-        value:20
-    },
-    {
-        name:"name3",
-        value:30
-    },
-    {
-        name:"nam4",
-        value:30
-    },
-    {
-        name:"name5",
-        value:30
-    },
-    {
-        name:"name6",
-        value:30
-    },
-    {
-        name:"name7",
-        value:30
-    },
-    {
-        name:"name8",
-        value:30
-    },
-    {
-        name:"name9",
-        value:30
-    },
-    {
-        name:"name10",
-        value:30
-    },
-    {
-        name:"name11",
-        value:30
-    },
-    {
-        name:"name12",
-        value:30
-    },
 
-
-];
 const style = {
     customRow:{
         marginRight:0
@@ -102,8 +54,9 @@ const style = {
     sidemenu:{
         margin:0,
         padding:0,
-        overflowY: "scroll",
+        overflowY: "auto",
         maxHeight:"92.2vh",
+        background:"#2c3e50"
 
     },
 
@@ -112,6 +65,7 @@ const style = {
 function mapStateToProps(state) {
     return {
         equities:state.equity.equities,
+        selected:state.equity.selectedEquity
     };
 }
 

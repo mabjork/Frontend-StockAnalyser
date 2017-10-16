@@ -5,7 +5,7 @@ const superagent = superagentPromise(_superagent, global.Promise);
 
 const API_ROOT = 'https://conduit.productionready.io/api';
 const ALPHA_VANTAGE_ROOT = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=';
-const ALPHA_VANTAGE_END = "&apikey=UM5EE9UP44J2R9SE"
+const ALPHA_VANTAGE_END = "&apikey=UM5EE9UP44J2R9SE";
 
 const encode = encodeURIComponent;
 const responseBody = res => res.body;
