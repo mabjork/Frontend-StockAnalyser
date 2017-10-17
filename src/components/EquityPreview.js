@@ -16,7 +16,6 @@ const EquityPreview = props => {
     const favoritted = equity.favorited ?
         FAVORITED_CLASS: NOT_FAVORITED_CLASS;
     const handleClick = () => {
-        console.log()
         store.dispatch(equityActions.setSelected(equity))
     };
 

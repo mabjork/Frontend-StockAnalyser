@@ -12,7 +12,8 @@ import  RegisterPage from './RegisterPage'
 import  CustomNavbar from "./Navbar"
 import EquityPage from "./EquityPage";
 import EquityDataPage from "./EquityDataPage";
-import NotFoundPage from "./NotFoundPage"
+import NotFoundPage from "./NotFoundPage";
+import EquityInfoPage from "./EquityInfoPage";
 
 
 class App extends React.Component{
@@ -25,6 +26,7 @@ class App extends React.Component{
                 <div >
                     <Switch>
                         <Route exact path="/" component={HomePage} />
+                        <Route path="/equities/:symbol/info" component={EquityInfoPage} />
                         <Route path="/equities/:symbol" component={EquityDataPage} />
                         <Route exact path="/equities" component={EquityPage} />
                         <Route path="/login" component={LoginPage} />
