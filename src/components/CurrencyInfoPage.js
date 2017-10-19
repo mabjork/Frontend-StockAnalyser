@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux'
 
-class EquityInfoPage extends React.Component {
+class CurrencyInfoPage extends React.Component {
     render(){
         return (
             <div className="container" style={{marginTop:"5vh"}}>
@@ -11,7 +11,7 @@ class EquityInfoPage extends React.Component {
                 </div>
                 <div className="row justify content-center">
                     <p>
-                        this page vil show info about the selected equity
+                        this page vil show info about the selected currency
                     </p>
                 </div>
             </div>
@@ -20,7 +20,7 @@ class EquityInfoPage extends React.Component {
 }
 function mapStateToProps(state) {
     return{
-        selected:state.equity.selectedEquity
+        selected:state.currency.selected
     };
 }
-export default connect(mapStateToProps)(EquityInfoPage)
+export default connect(mapStateToProps)(CurrencyInfoPage)

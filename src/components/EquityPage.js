@@ -6,10 +6,8 @@ import EquityList from "./EquityList";
 class EquityPage extends React.Component {
     render(){
         return (
-            <div className="jumbotron">
-                <div className="container">
-                    <EquityList equities={this.props.equities}/>
-                </div>
+            <div className="container-fluid justify-content-center" style={{marginTop:"5vh"}}>
+                <EquityList equities={this.props.equities}/>
             </div>
         );
     }

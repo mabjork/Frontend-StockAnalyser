@@ -6,6 +6,7 @@ import {store} from "../store"
 import {history} from "../helpers/history";
 import {equityConstants} from "../constants/equityConstants";
 import {equityActions} from "../actions/equityActions";
+import  AreaChart from "react-icons/lib/fa/area-chart"
 
 const FAVORITED_CLASS = 'btn btn-sm btn-primary';
 const NOT_FAVORITED_CLASS = 'btn btn-sm btn-outline-primary';
@@ -21,9 +22,10 @@ const EquityPreview = props => {
 
     return (
         <tr>
-            <th><Link onClick={handleClick} to={`/equities/${equity.symbol}/TIME_SERIES_INTRADAY`} className="text-dark">{equity.symbol}</Link></th>
+            <th>{equity.symbol}</th>
             <th>{equity.name}</th>
             <th>{equity.sector}</th>
+            <th><Link onClick={handleClick} to={`/equities/${equity.symbol}/TIME_SERIES_INTRADAY`} className="text-dark"><AreaChart/></Link></th>
         </tr>
     );
 

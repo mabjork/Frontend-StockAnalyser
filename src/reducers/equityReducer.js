@@ -3,7 +3,7 @@ import {equityConstants} from "../constants/equityConstants";
 
 const initData = [
     {
-        symbol:"t1",
+        symbol:"STL",
         name:"test1",
         sector:"sector1"
     },
@@ -87,7 +87,7 @@ const data = [
 
 
 ];
-export default function equities(state={equities:initData,fetching:false,equityData:data},action) {
+export default function equities(state={equities:initData,equityData:data},action) {
     switch (action.type){
         case equityConstants.FETCH_ALL_REQUEST:
             return {
@@ -109,13 +109,13 @@ export default function equities(state={equities:initData,fetching:false,equityD
         case equityConstants.EQUITY_DATA_LOADED:
             return {
                 ...state,
-                selectedData:action.payload
+                equityData:action.payload
             };
         case equityConstants.EQUITY_DATA_UNLOADED:
             return {
                 ...state,
                 selectedEquity:null,
-                selectedData:null
+                equityData:null
             };
         case equityConstants.SET_SELECTED_EQUITY:
             return{

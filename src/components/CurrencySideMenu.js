@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import SideNav, { Nav, NavIcon, NavText } from 'react-sidenav';
 import {history} from "../helpers/history"
 
-const SideMenu = (props) => {
+const CurrencySideMenu = (props) => {
     let symbol = props.symbol;
-    let path = "/equities/"+symbol+"/";
+    let path = "/currencies/"+symbol+"/";
     return (
         <div style={{background: '#2c3e50', color: '#FFF', width: 220}}>
             <SideNav highlightColor='#000000' highlightBgColor='#00bcd4' defaultSelected='TIME_SERIES_INTRADAY'
@@ -44,4 +44,4 @@ const SideMenu = (props) => {
 
 };
 
-export default SideMenu;
+export default CurrencySideMenu;

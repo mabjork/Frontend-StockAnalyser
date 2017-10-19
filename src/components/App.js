@@ -14,6 +14,9 @@ import EquityPage from "./EquityPage";
 import EquityDataPage from "./EquityDataPage";
 import NotFoundPage from "./NotFoundPage";
 import EquityInfoPage from "./EquityInfoPage";
+import CurrencyPage from "./CurrencyPage";
+import CurrencyDataPage from "./CurrencyDataPage";
+import CurrencyInfoPage from "./CurrencyInfoPage"
 
 
 class App extends React.Component{
@@ -29,6 +32,9 @@ class App extends React.Component{
                         <Route path="/equities/:symbol/info" component={EquityInfoPage} />
                         <Route path="/equities/:symbol" component={EquityDataPage} />
                         <Route exact path="/equities" component={EquityPage} />
+                        <Route path="/currencies/:symbol/info" component={CurrencyInfoPage} />
+                        <Route path="/currencies/:symbol" component={CurrencyDataPage} />
+                        <Route exact path="/currencies" component={CurrencyPage} />
                         <Route path="/login" component={LoginPage} />
                         <Route path="/register" component={RegisterPage} />
                         <Route path='/404' component={NotFoundPage} />

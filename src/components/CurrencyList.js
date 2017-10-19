@@ -1,23 +1,23 @@
 import React from 'react';
-import EquityPreview from "./EquityPreview"
-const EquityList = props => {
+import CurrencyPreview from "./CurrencyPreview"
+const CurrencyList = props => {
     return(
         <div className="container">
-            <h2>Aksjer</h2>
+            <h2>Valutaer</h2>
             <table className="table table-striped">
                 <thead className="thead" style={{background: '#2c3e50', color:"#FFF"}}>
                 <tr>
                     <th>Symbol</th>
                     <th>Navn</th>
-                    <th>Sektor</th>
+                    <th>Type</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 {
-                    props.equities.map(equity => {
+                    props.currencies.map(currency => {
                         return (
-                            <EquityPreview equity={equity} key={equity.id}/>);
+                            <CurrencyPreview currency={currency} key={currency.id}/>);
                     })
                 }
                 </tbody>
@@ -26,4 +26,4 @@ const EquityList = props => {
     )
 };
 
-export default EquityList;
+export default CurrencyList;

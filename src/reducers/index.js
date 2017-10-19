@@ -5,11 +5,13 @@ import authenticationReducer from "./authenticationReducer"
 import userReducer from "./userReducer"
 import registrationReducer from "./registrationReducer"
 import equityReducer from "./equityReducer"
+import currencyReducer from "./currencyReducer"
 
 export default combineReducers({
     alert:alertReducer,
     auth:authenticationReducer,
     user:userReducer,
     registration:registrationReducer,
-    equity:equityReducer
+    equity:equityReducer,
+    currency:currencyReducer
 });
