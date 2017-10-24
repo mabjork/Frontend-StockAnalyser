@@ -25,7 +25,7 @@ const EquityPreview = props => {
             <th>{equity.symbol}</th>
             <th>{equity.name}</th>
             <th>{equity.sector}</th>
-            <th><Link onClick={handleClick} to={`/equities/${equity.symbol}/TIME_SERIES_INTRADAY`} className="text-dark"><AreaChart/></Link></th>
+            <th><Link onClick={handleClick} to={`/equities/${equity.symbol}/TIME_SERIES_INTRADAY`} className="text-dark"><AreaChart size={28}/></Link></th>
         </tr>
     );
 

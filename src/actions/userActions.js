@@ -17,19 +17,20 @@ function login(username, password) {
 
         userService.login(username, password)
             .then(
-                user => {
-                    dispatch(success(user));
-                    history.push('/');
-                },
                 error => {
                     dispatch(failure(error));
                     dispatch(alertActions.error(error));
+                },
+                token => {
+                    dispatch(success(token));
+                    history.push('/');
                 }
+
             );
     };
 
     function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
-    function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
+    function success(token) { return { type: userConstants.LOGIN_SUCCESS ,token:token} }
     function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
 }
 

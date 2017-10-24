@@ -20,6 +20,7 @@ class LoginPage extends React.Component {
     }
     handleChange(e){
         const {name,value} = e.target;
+
         this.setState({[name]: value});
     }
     handleSubmit(e){

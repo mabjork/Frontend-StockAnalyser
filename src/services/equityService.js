@@ -12,6 +12,7 @@ function getData(symbol,dataFunction,interval){
         store.dispatch(equityActions.setData(transformData(res.data)))
     })
 
+
 }
 function transformData(body){
 
