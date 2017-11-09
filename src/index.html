@@ -5,8 +5,28 @@
     <meta charset="UTF-8">
     <title>Finance lols</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+        [data-reactroot]
+        {height: 100% !important; }
+        .page-item.active .page-link {
+            z-index: 2;
+            color: #fff;
+            background-color: #2c3e50;
+            border-color: #2c3e50;
+        }
+        .page-link {
+            color: #2c3e50;
+        }
+        .recharts-wrapper {
+            margin : 0 auto;
+        }
+    </style>
 </head>
     <body>
-        <div id="app"></div>
+        <div id="app" style="height: 100%"></div>
     </body>
 </html>

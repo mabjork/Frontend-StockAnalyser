@@ -1,23 +1,53 @@
 import React from 'react';
-import { DropdownMenu, MenuItem } from 'react-bootstrap-dropdown-menu';
+import { Dropdown, DropdownMenu, DropdownToggle ,DropdownItem} from 'reactstrap';
+import PersonIcon from "react-icons/lib/md/person"
+import { connect } from 'react-redux'
 
 class ProfileMenu extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+            dropdownOpen: false
+        };
+
+    }
+    toggle() {
+        this.setState({
+            dropdownOpen: !this.state.dropdownOpen
+        });
+    }
     render() {
         return (
-            <div className="dropdown">
-                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
-                </button>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
-                </div>
+            <div className="" >
+                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                    <DropdownToggle
+                        tag="div"
+                        onClick={this.toggle}
+                        data-toggle="dropdown"
+                        aria-expanded={this.state.dropdownOpen}
+                    >
+
+                        <PersonIcon size={40} color="white"/>
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                        <DropdownItem header>{this.props.username}</DropdownItem>
+                        <DropdownItem divider/>
+                        <DropdownItem disabled>Settings</DropdownItem>
+                        <DropdownItem>Help</DropdownItem>
+                        <DropdownItem divider/>
+                        <DropdownItem>Log-out</DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
             </div>
+
         )
     }
 }
-const customStyle = {
-    display:"none",
+function mapStateToProps(state) {
+    return {
+        username:state.auth.user.username
+    }
 }
-export default ProfileMenu;
+export default connect(mapStateToProps)(ProfileMenu);

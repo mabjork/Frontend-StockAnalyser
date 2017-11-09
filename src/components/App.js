@@ -25,16 +25,16 @@ class App extends React.Component{
     render(){
         return(
             <div>
-                <CustomNavbar/>
-                <div >
+                <CustomNavbar height={9}/>
+                <div style={{height:"93%"}}>
                     <Switch>
                         <Route exact path="/" component={HomePage} />
-                        <Route path="/equities/:symbol/info" component={EquityInfoPage} />
-                        <Route path="/equities/:symbol" component={EquityDataPage} />
-                        <Route exact path="/equities" component={EquityPage} />
-                        <Route path="/currencies/:symbol/info" component={CurrencyInfoPage} />
-                        <Route path="/currencies/:symbol" component={CurrencyDataPage} />
-                        <Route exact path="/currencies" component={CurrencyPage} />
+                        <PrivateRoute path="/equities/:symbol/info" component={EquityInfoPage} />
+                        <PrivateRoute path="/equities/:symbol" component={EquityDataPage} />
+                        <PrivateRoute exact path="/equities" component={EquityPage} />
+                        <PrivateRoute path="/currencies/:symbol/info" component={CurrencyInfoPage} />
+                        <PrivateRoute path="/currencies/:symbol" component={CurrencyDataPage} />
+                        <PrivateRoute exact path="/currencies" component={CurrencyPage} />
                         <Route path="/login" component={LoginPage} />
                         <Route path="/register" component={RegisterPage} />
                         <Route path='/404' component={NotFoundPage} />

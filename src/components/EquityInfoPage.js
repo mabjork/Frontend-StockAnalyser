@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 class EquityInfoPage extends React.Component {
     render(){
         return (
-            <div className="container" style={{marginTop:"5vh"}}>
+            <div className="container" style={{padding:"5vh",height:"100%"}}>
                 <div className="row justify-content-center">
                     <h2 className="text-center">{this.props.selected.name} [{this.props.selected.symbol}]</h2>
 
                 </div>
-                <div className="row justify content-center">
+                <div className="row justify-content-center">
                     <p>
                         this page vil show info about the selected equity
                     </p>

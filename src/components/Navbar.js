@@ -17,7 +17,7 @@ class CustomNavbar extends React.Component {
 }
 const LoggedOutNavbar = () => {
     return(
-        <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark" style={{height:"7%"}}>
             <a href="/" className="navbar-brand">Finansinator</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar6">
                 <span className="navbar-toggler-icon"></span>
@@ -49,7 +49,7 @@ const LoggedOutNavbar = () => {
 };
 const LoggedInNavbar = () =>{
     return (
-        <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark" style={{height:"7%"}}>
             <a href="/" className="navbar-brand">Finansinator</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar6">
                 <span className="navbar-toggler-icon"></span>

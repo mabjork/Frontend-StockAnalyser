@@ -19,16 +19,13 @@ function login(username,password) {
         }
         return res.data;
     }).then(data => {
-        console.log(data);
-        if(data){
-            localStorage.setItem("token",token)
-        }
+
+        localStorage.setItem("token",String(data));
         return {token:token};
     });
 
 }
 function logout(username){
-    localStorage.removeItem("user");
     return axios.post(logoutUrl,{username:username}).then(res => {
         return res.ok;
     })
