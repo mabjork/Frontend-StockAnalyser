@@ -6,7 +6,7 @@ const ALPHA_VANTAGE_END = "&apikey=UM5EE9UP44J2R9SE";
 const test = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=MSFT&apikey=demo";
 const baseUrl = "http://localhost:8080/equities";
 
-/*
+
 axios.interceptors.request.use(request => {
     console.log('Starting Request', request)
     return request
@@ -16,7 +16,7 @@ axios.interceptors.response.use(response => {
     console.log('Response:', response)
     return response
 });
-*/
+
 function getData(symbol,dataFunction,interval){
 
     const url = ALPHA_VANTAGE_ROOT + "function=" + dataFunction + "&symbol="  + symbol + "&interval=" + interval + ALPHA_VANTAGE_END;;
@@ -56,6 +56,16 @@ function unsubscribe(symbol,username){
         return res;
     })
 }
+function getSectorData() {
+    const url = ALPHA_VANTAGE_ROOT + "function=SECTOR"+ ALPHA_VANTAGE_END;
+    return axios.get(url).then(res => {
+        if(res.status !== 200){
+            Promise.reject(res.statusText)
+        }
+
+        return res.data;
+    })
+}
 function transformData(body){
 
     let keys = Object.keys(body);
@@ -67,9 +77,11 @@ function transformData(body){
     return dataList.reverse();
 }
 
+
 export const equityService = {
     getData,
     subscribe,
     unsubscribe,
-    getEquitiesPage
+    getEquitiesPage,
+    getSectorData
 };

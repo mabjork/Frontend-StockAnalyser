@@ -1,93 +1,49 @@
 import {currencyConstants} from "../constants/currencyConstants";
 
 
-const currencyData = [
-    {
-        symbol:"BTC",
-        name:"Bitcoin",
-        type:"Crypto currency"
-    },
-    {
-        symbol:"USD",
-        name:"US Dollar",
-        type:"Regular currency"
-    }
-];
-const data = [
-    {
-        name:"name1",
-        value:10
-    },
-    {
-        name:"name2",
-        value:20
-    },
-    {
-        name:"name3",
-        value:30
-    },
-    {
-        name:"nam4",
-        value:30
-    },
-    {
-        name:"name5",
-        value:30
-    },
-    {
-        name:"name6",
-        value:30
-    },
-    {
-        name:"name7",
-        value:30
-    },
-    {
-        name:"name8",
-        value:30
-    },
-    {
-        name:"name9",
-        value:30
-    },
-    {
-        name:"name10",
-        value:30
-    },
-    {
-        name:"name11",
-        value:30
-    },
-    {
-        name:"name12",
-        value:30
-    },
 
 
-];
-export default function currencies(state={currencies:currencyData,data:data},action) {
+export default function currencies(state={},action) {
     switch (action.type){
-        case currencyConstants.FETCH_ALL_CURRENCIES_REQUEST:
+        case currencyConstants.FETCH_ALL_DIGITAL_CURRENCIES_REQUEST:
             return{
                 ...state,
                 fetching:true,
             };
-        case currencyConstants.FETCH_ALL_CURRENCIES_FAILURE:
+        case currencyConstants.FETCH_ALL_DIGITAL_CURRENCIES_FAILURE:
             return{
                 ...state,
                 error:action.error,
                 fetched:false
             };
-        case currencyConstants.FETCH_ALL_CURRENCIES_SUCCESS:
+        case currencyConstants.FETCH_ALL_DIGITAL_CURRENCIES_SUCCESS:
             return {
                 ...state,
                 fetching:false,
-                fetched:true
+                fetched:true,
+                currencies:action.data
             };
         case currencyConstants.SET_SELECTED_CURRENCY:
             return {
                 ...state,
-                selected:action.payload
+                selectedCurrency:action.payload
+            };
+        case currencyConstants.FETCH_DIGITAL_CURRENCY_DATA_REQUEST:
+            return {
+                ...state,
+                fetching:true,
+            };
+        case currencyConstants.FETCH_DIGITAL_CURRENCY_DATA_FAILURE:
+            return {
+                ...state,
+                fetching:false,
+                error:action.error
+            };
+        case currencyConstants.FETCH_DIGITAL_CURRENCY_DATA_SUCCESS:
+            return {
+                ...state,
+                fetching:false,
+                currencyData:action.data
             };
         default:
             return state

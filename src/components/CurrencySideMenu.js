@@ -8,31 +8,23 @@ const CurrencySideMenu = (props) => {
     let path = "/currencies/"+symbol+"/";
     return (
         <div style={{background: '#2c3e50', color: '#FFF', width: 220}}>
-            <SideNav highlightColor='#000000' highlightBgColor='#00bcd4' defaultSelected='TIME_SERIES_INTRADAY'
+            <SideNav highlightColor='#000000' highlightBgColor='#00bcd4' defaultSelected='DIGITAL_CURRENCY_INTRADAY'
                      onItemSelection={(id, parent) => {
                          history.push(path + id)
                      }}>
-                <Nav id='TIME_SERIES_INTRADAY'>
+                <Nav id='DIGITAL_CURRENCY_INTRADAY'>
 
                     <NavText> Intraday</NavText>
                 </Nav>
-                <Nav id='TIME_SERIES_DAILY'>
+                <Nav id='DIGITAL_CURRENCY_DAILY'>
 
                     <NavText> Daily </NavText>
                 </Nav>
-                <Nav id='TIME_SERIES_DAILY_ADJUSTED'>
-
-                    <NavText> Daily adjusted</NavText>
-                </Nav>
-                <Nav id='TIME_SERIES_WEEKLY'>
+                <Nav id='DIGITAL_CURRENCY_WEEKLY'>
 
                     <NavText> Weekly </NavText>
                 </Nav>
-                <Nav id='TIME_SERIES_WEEKLY_ADJUSTED'>
-
-                    <NavText> Weekly adjusted </NavText>
-                </Nav>
-                <Nav id='TIME_SERIES_MONTHLY'>
+                <Nav id='DIGITAL_CURRENCY_MONTHLY'>
 
                     <NavText> Monthly </NavText>
                 </Nav>

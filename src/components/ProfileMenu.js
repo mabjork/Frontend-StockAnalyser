@@ -2,6 +2,8 @@ import React from 'react';
 import { Dropdown, DropdownMenu, DropdownToggle ,DropdownItem} from 'reactstrap';
 import PersonIcon from "react-icons/lib/md/person"
 import { connect } from 'react-redux'
+import {userActions} from "../actions/userActions";
+import { history } from '../helpers/history';
 
 class ProfileMenu extends React.Component {
     constructor(props) {
@@ -11,12 +13,31 @@ class ProfileMenu extends React.Component {
         this.state = {
             dropdownOpen: false
         };
+        this.dropDownItemClick = this.dropDownItemClick.bind(this);
 
     }
     toggle() {
         this.setState({
             dropdownOpen: !this.state.dropdownOpen
         });
+    }
+    dropDownItemClick(name){
+        console.log("lololololololol");
+        switch (name){
+            case "LogOut":
+                userActions.logout();
+                history.push('/login');
+                return;
+            case "MyPage":
+                history.push("/user/mypage");
+                return;
+            case "Settings":
+                history.push("/user/lol/settings");
+                return;
+            case "Help":
+                history.push("/help");
+                return;
+        }
     }
     render() {
         return (
@@ -26,18 +47,19 @@ class ProfileMenu extends React.Component {
                         tag="div"
                         onClick={this.toggle}
                         data-toggle="dropdown"
-                        aria-expanded={this.state.dropdownOpen}
-                    >
+                        aria-expanded={this.state.dropdownOpen}>
 
                         <PersonIcon size={40} color="white"/>
+
                     </DropdownToggle>
                     <DropdownMenu right>
                         <DropdownItem header>{this.props.username}</DropdownItem>
                         <DropdownItem divider/>
-                        <DropdownItem disabled>Settings</DropdownItem>
-                        <DropdownItem>Help</DropdownItem>
+                        <DropdownItem onClick={() => this.dropDownItemClick("MyPage")}>My Page</DropdownItem>
+                        <DropdownItem onClick={() => this.dropDownItemClick("Settings")}>Settings</DropdownItem>
+                        <DropdownItem onClick={() => this.dropDownItemClick("FAQ")}>FAQ</DropdownItem>
                         <DropdownItem divider/>
-                        <DropdownItem>Log-out</DropdownItem>
+                        <DropdownItem onClick={() => this.dropDownItemClick("LogOut")}>Log-out</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
             </div>

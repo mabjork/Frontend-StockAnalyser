@@ -48,6 +48,20 @@ export default function equities(state={},action) {
                 ...state,
                 equityData:null
             };
+        case equityConstants.FETCH_SECTOR_DATA_REQUEST:
+            return {
+                ...state
+            };
+        case equityConstants.FETCH_SECTOR_DATA_FAILURE:
+            return {
+                ...state,
+                error:action.error
+            };
+        case equityConstants.FETCH_SECTOR_DATA_SUCCESS:
+            return {
+                ...state,
+                sectorData:action.data
+            };
         default:
             return state
     }

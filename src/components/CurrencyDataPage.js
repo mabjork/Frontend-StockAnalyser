@@ -21,14 +21,14 @@ class CurrencyDataPage extends React.Component {
 
     render(){
         return (
-            <div className="d-flex container-fluid" style={{padding:0}}>
+            <div className="d-flex container-fluid" style={{padding:0,height:"100%"}}>
                 <div className="col-md-auto" style={style.sidemenu}>
                     <CurrencySideMenu symbol={this.props.selected.symbol}/>
                 </div>
                 <div className="col" >
                     <div className="row justify-content-center align-items-center" style={{minHeight:"92vh"}}>
                         <Switch>
-                            <Route exact path="/currencies/:symbol/:function" component={CurrencyGraphPage} />
+                            <Route exact path="/currencies/:symbol/:datafunction" component={CurrencyGraphPage} />
                             <Route path='/404' component={NotFoundPage} />
                             <Redirect from='*' to='/404' />
                         </Switch>
@@ -64,7 +64,7 @@ const style = {
 function mapStateToProps(state) {
     return {
         currencies:state.currency.currencies,
-        selected:state.currency.selected
+        selected:state.currency.selectedCurrency
     };
 }
 

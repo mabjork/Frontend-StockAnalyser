@@ -16,8 +16,7 @@ const CurrencyPreview = props => {
         <tr>
             <th>{currency.symbol}</th>
             <th>{currency.name}</th>
-            <th>{currency.type}</th>
-            <th><Link onClick={handleClick} to={`/currencies/${currency.symbol}/TIME_SERIES_INTRADAY`} className="text-dark"><AreaChart size={28}/></Link></th>
+            <th><Link onClick={handleClick} to={`/currencies/${currency.symbol}/DIGITAL_CURRENCY_INTRADAY`} className="text-dark"><AreaChart size={28}/></Link></th>
         </tr>
     );
 

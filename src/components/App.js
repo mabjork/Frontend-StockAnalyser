@@ -16,7 +16,12 @@ import NotFoundPage from "./NotFoundPage";
 import EquityInfoPage from "./EquityInfoPage";
 import CurrencyPage from "./CurrencyPage";
 import CurrencyDataPage from "./CurrencyDataPage";
-import CurrencyInfoPage from "./CurrencyInfoPage"
+import CurrencyInfoPage from "./CurrencyInfoPage";
+import HelpPage from "./HelpPage";
+import UserPage from "./UserPage";
+import UserSettingsPage from "./UserSettingsPage"
+import SectorPage from "./SectorPage";
+
 
 
 class App extends React.Component{
@@ -25,7 +30,7 @@ class App extends React.Component{
     render(){
         return(
             <div>
-                <CustomNavbar height={9}/>
+                <CustomNavbar height={7}/>
                 <div style={{height:"93%"}}>
                     <Switch>
                         <Route exact path="/" component={HomePage} />
@@ -35,6 +40,10 @@ class App extends React.Component{
                         <PrivateRoute path="/currencies/:symbol/info" component={CurrencyInfoPage} />
                         <PrivateRoute path="/currencies/:symbol" component={CurrencyDataPage} />
                         <PrivateRoute exact path="/currencies" component={CurrencyPage} />
+                        <PrivateRoute path="/user/:id/settings" component={UserSettingsPage} />
+                        <PrivateRoute path="/user/:id" component={UserPage} />
+                        <PrivateRoute path="/sectors" component={SectorPage}/>
+                        <Route path="/help" component={HelpPage} />
                         <Route path="/login" component={LoginPage} />
                         <Route path="/register" component={RegisterPage} />
                         <Route path='/404' component={NotFoundPage} />

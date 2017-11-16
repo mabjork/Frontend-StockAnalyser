@@ -11,7 +11,8 @@ export const equityActions = {
     fetchEquitiesPage,
     subscribe,
     unsubscribe,
-    unloadData
+    unloadData,
+    fetchSectorData
 };
 
 function setSelected(equity){
@@ -91,4 +92,24 @@ function unloadData() {
     return dispatch => {
         dispatch({type:equityConstants.EQUITY_DATA_UNLOADED})
     }
+}
+
+function fetchSectorData() {
+    return dispatch => {
+        dispatch(request());
+
+        equityService.getSectorData()
+            .then(
+                data => {
+                    dispatch(success(data))
+                },
+                error => {
+                    dispatch(failure(error))
+                }
+
+            )
+    };
+    function request() { return { type: equityConstants.FETCH_SECTOR_DATA_REQUEST} }
+    function success(data) { return { type: equityConstants.FETCH_SECTOR_DATA_SUCCESS,data} }
+    function failure(error) { return { type: equityConstants.FETCH_SECTOR_DATA_FAILURE,error} }
 }

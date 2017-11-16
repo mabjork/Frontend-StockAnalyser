@@ -71,6 +71,11 @@ const LoggedInNavbar = () =>{
                             Currencies
                         </Link>
                     </li>
+                    <li className="nav-item active">
+                        <Link to="/sectors" className="nav-link">
+                            Sectors
+                        </Link>
+                    </li>
                 </ul>
                 <ul className="navbar-nav ml-auto">
                     <ProfileMenu/>

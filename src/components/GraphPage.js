@@ -64,14 +64,17 @@ class GraphPage extends React.Component {
                     </Collapse>
                 </div>
                 <div className="row justify-content-center">
-                    <AreaChart  data={data} height={500} width={700}>
-                        <Area type="monotone" dataKey="value" stroke="#8884d8" fill="#8884d8" />
-                        <CartesianGrid stroke="#ccc" />
-                        <Tooltip />
-                        <Legend />
-                        <XAxis dataKey="time" />
-                        <YAxis dataKey="value"/>
-                    </AreaChart>
+                    <ResponsiveContainer height={600} width="90%">
+                        <AreaChart  data={data}  margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>>
+                            <Area type="monotone" dataKey="value" stroke="#8884d8" fill="#8884d8" />
+                            <CartesianGrid stroke="#ccc" />
+                            <Tooltip />
+                            <Legend />
+                            <XAxis dataKey="time" />
+                            <YAxis dataKey="value"/>
+                        </AreaChart>
+                    </ResponsiveContainer>
+
 
                 </div>
             </div>

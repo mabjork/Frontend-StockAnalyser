@@ -1,7 +1,7 @@
 import React from 'react';
 import EquityPreview from "./EquityPreview"
 const EquityList = props => {
-    console.log(props.equities);
+
 
     if(props.equities != null){
         return(

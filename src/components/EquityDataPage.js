@@ -20,7 +20,7 @@ class EquityDataPage extends React.Component {
                     <SideMenu symbol={this.props.selected.symbol}/>
                 </div>
                 <div className="col" >
-                    <div className="row justify-content-center align-items-center" style={{minHeight:"92vh"}}>
+                    <div className="row justify-content-center align-items-center" style={{height:"100%"}}>
                         <Switch>
                             <Route exact path="/equities/:symbol/:datafunction" component={GraphPage} />
                             <Route path='/404' component={NotFoundPage} />
