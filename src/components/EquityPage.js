@@ -5,6 +5,7 @@ import EquityList from "./EquityList";
 import {equityActions} from "../actions/equityActions";
 import ReactPaginate from 'react-paginate';
 import UltimatePagination from "react-ultimate-pagination-bootstrap-4"
+import NewEquityList from "./NewEquityList";
 
 class EquityPage extends React.Component {
     constructor(props){
@@ -32,7 +33,7 @@ class EquityPage extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="container-fluid justify-content-center" style={{marginTop:"5vh"}}>
-                        <EquityList equities={this.props.equities}/>
+                        <NewEquityList equities={this.props.equities}/>
                     </div>
                 </div>
                 <div className="row justify-content-center align-items-center" >

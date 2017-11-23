@@ -1,7 +1,7 @@
 import React from "react"
 import {connect} from "react-redux"
 import {equityActions} from "../actions/equityActions";
-import {BarChart, CartesianGrid,XAxis,YAxis,Tooltip,Legend,Bar,ResponsiveContainer} from "recharts"
+import {BarChart, CartesianGrid,XAxis,YAxis,Tooltip,Legend,Bar,ResponsiveContainer,Cell} from "recharts"
 import { Button, ButtonGroup, ButtonToolbar,Collapse, CardBody, Card  } from 'reactstrap';
 
 class SectorPage extends React.Component {
@@ -18,6 +18,7 @@ class SectorPage extends React.Component {
         this.setState({interval:newInterval});
 
     }
+
     render(){
         console.log(this.props.sectorData);
         if (this.props.sectorData != null){
@@ -49,7 +50,14 @@ class SectorPage extends React.Component {
                                     <YAxis dataKey="value"/>
                                     <Tooltip />
                                     <Legend />
-                                    <Bar dataKey="value" fill="#8884d8" />
+                                    <Bar dataKey="value">
+                                        {
+                                            data.map((entry, index) => {
+                                                const color = entry.value > 0 ? "green" : "red";
+                                                return <Cell fill={color} />;
+                                            })
+                                        }
+                                    </Bar>
 
                                 </BarChart>
                             </ResponsiveContainer>

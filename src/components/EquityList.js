@@ -14,6 +14,7 @@ const EquityList = props => {
                         <th>Navn</th>
                         <th>Sektor</th>
                         <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>

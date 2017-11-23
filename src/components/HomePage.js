@@ -76,7 +76,7 @@ class HomePage extends React.Component {
                     onExiting={this.onExiting}
                     onExited={this.onExited}
                     key={item.src}
-                    src="https://imagejournal.org/wp-content/uploads/bb-plugin/cache/23466317216_b99485ba14_o-panorama.jpg"
+                    src="https://www.bitcoin.com/wp-content/uploads/2017/06/usebitcoin-4096x2253.jpg"
                     altText={item.altText}
                 >
 
