@@ -14,17 +14,24 @@ export const userActions = {
 function login(username, password) {
     return dispatch => {
         dispatch(request({ username }));
-
+        console.log("Logging in");
         userService.login(username, password)
             .then(
-                error => {
-                    dispatch(failure(error));
-                    dispatch(alertActions.error(error));
-                },
+
                 token => {
+                    console.log(token);
                     dispatch(success(token));
                     history.push('/');
+                },
+                error => {
+
+                    console.log("failed");
+                    dispatch(failure(error));
+                    logout()
+
                 }
+
+
 
             );
     };

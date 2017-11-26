@@ -8,18 +8,18 @@ const baseUrl = "http://localhost:8080/equities";
 
 
 axios.interceptors.request.use(request => {
-    console.log('Starting Request', request)
+    console.log('Starting Request', request);
     return request
 });
 
 axios.interceptors.response.use(response => {
-    console.log('Response:', response)
+    console.log('Response:', response);
     return response
 });
 
 function getData(symbol,dataFunction,interval){
 
-    const url = ALPHA_VANTAGE_ROOT + "function=" + dataFunction + "&symbol="  + symbol + "&interval=" + interval + ALPHA_VANTAGE_END;;
+    const url = ALPHA_VANTAGE_ROOT + "function=" + dataFunction + "&symbol="  + symbol + "&interval=" + interval + ALPHA_VANTAGE_END;
     return axios.get(url).then(res => {
         if(res.status !== 200){
             Promise.reject(res.statusText)
@@ -66,6 +66,18 @@ function getSectorData() {
         return res.data;
     })
 }
+
+function searchEquities(query) {
+    const url = baseUrl + "/search?query=" + query;
+    return axios.get(url,{headers:{'Authorization': 'Bearer '+localStorage.getItem("token")}})
+        .then(res => {
+            if(res.status !== 200){
+                Promise.reject(res.statusText)
+            }
+            return res.data
+        })
+}
+
 function transformData(body){
 
     let keys = Object.keys(body);
@@ -83,5 +95,6 @@ export const equityService = {
     subscribe,
     unsubscribe,
     getEquitiesPage,
-    getSectorData
+    getSectorData,
+    searchEquities
 };

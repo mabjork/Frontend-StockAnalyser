@@ -10,18 +10,27 @@ export const userService = {
     logout,
     register,
 };
+
+
+
+
 function login(username,password) {
     return axios.post(loginUrl,{username:username,password:password}).then(res => {
-
+        console.log("lolololololololololol");
         if (res.status !== 200){
-
+            console.log("rejected");
             return Promise.reject(res.statusText);
         }
         return res.data;
+    },error => {
+        console.log("hahahahahahahahah");
+        return Promise.reject(error);
     }).then(data => {
-
         localStorage.setItem("token",String(data));
-        return {token:token};
+        return {token:String(data)};
+    },error=>{
+        console.log(error);
+        return Promise.reject(error)
     });
 
 }

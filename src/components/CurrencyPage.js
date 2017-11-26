@@ -9,7 +9,9 @@ class CurrencyPage extends React.Component {
         super(props);
         this.state = {
             page: 1,
-            total: 10
+            ptotal: Math.floor(props.phyCurCount/20),
+            dtotal: Math.floor(props.digCurCount/20)
+
         };
         this.onPageChange = this.onPageChange.bind(this);
     }
@@ -36,7 +38,7 @@ class CurrencyPage extends React.Component {
                 <div className="row justify-content-center align-items-center" >
                     <UltimatePagination
                         currentPage={this.state.page}
-                        totalPages={this.state.total}
+                        totalPages={this.state.dtotal}
                         onChange={this.onPageChange}
                     />
                 </div>
@@ -48,7 +50,10 @@ class CurrencyPage extends React.Component {
 }
 function mapStateToProps(state) {
     return{
-        currencies:state.currency.currencies
+        currencies:state.currency.currencies,
+        digCurCount:state.metadata.data.numDigCur,
+        phyCurCount:state.metadata.data.numPhyCur,
+
     };
 }
 export default connect(mapStateToProps)(CurrencyPage)

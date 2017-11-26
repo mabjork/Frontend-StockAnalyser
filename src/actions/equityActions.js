@@ -12,7 +12,8 @@ export const equityActions = {
     subscribe,
     unsubscribe,
     unloadData,
-    fetchSectorData
+    fetchSectorData,
+    searchEquities
 };
 
 function setSelected(equity){
@@ -112,4 +113,22 @@ function fetchSectorData() {
     function request() { return { type: equityConstants.FETCH_SECTOR_DATA_REQUEST} }
     function success(data) { return { type: equityConstants.FETCH_SECTOR_DATA_SUCCESS,data} }
     function failure(error) { return { type: equityConstants.FETCH_SECTOR_DATA_FAILURE,error} }
+}
+function searchEquities(query){
+    return dispatch => {
+        dispatch(request());
+
+        equityService.searchEquities(query)
+            .then(
+                data => {
+                    dispatch(success(data))
+                },
+                error => {
+                    dispatch(failure(error))
+                }
+            )
+    };
+    function request() { return { type: equityConstants.SEARCH_EQUITIES_REQUEST} }
+    function success(data) { return { type: equityConstants.SEARCH_EQUITIES_SUCCESS,data} }
+    function failure(error) { return { type: equityConstants.SEARCH_EQUITIES_FAILURE,error} }
 }

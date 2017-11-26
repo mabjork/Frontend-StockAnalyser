@@ -62,6 +62,23 @@ export default function equities(state={},action) {
                 ...state,
                 sectorData:action.data
             };
+        case equityConstants.SEARCH_EQUITIES_FAILURE:
+            return {
+                ...state,
+                fetchingData:false,
+                error:action.error
+            };
+        case equityConstants.SEARCH_EQUITIES_REQUEST:
+            return {
+                ...state,
+                fetchingData:true
+            };
+        case equityConstants.SEARCH_EQUITIES_SUCCESS:
+            return {
+                ...state,
+                searchData:action.data
+
+            };
         default:
             return state
     }

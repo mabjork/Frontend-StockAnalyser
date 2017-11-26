@@ -21,11 +21,15 @@ import HelpPage from "./HelpPage";
 import UserPage from "./UserPage";
 import UserSettingsPage from "./UserSettingsPage"
 import SectorPage from "./SectorPage";
-
+import {metadataActions} from "../actions/metadataActions";
 
 
 class App extends React.Component{
-
+    constructor(props){
+        super(props);
+        const {dispatch} = props;
+        dispatch(metadataActions.fetchMetadata())
+    }
 
     render(){
         return(

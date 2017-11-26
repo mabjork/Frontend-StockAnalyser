@@ -6,6 +6,7 @@ import userReducer from "./userReducer"
 import registrationReducer from "./registrationReducer"
 import equityReducer from "./equityReducer"
 import currencyReducer from "./currencyReducer"
+import metadataReducer from "./metadataReducer"
 
 export default combineReducers({
     alert:alertReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
     user:userReducer,
     registration:registrationReducer,
     equity:equityReducer,
-    currency:currencyReducer
+    currency:currencyReducer,
+    metadata: metadataReducer
 });
