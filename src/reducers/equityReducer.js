@@ -76,7 +76,7 @@ export default function equities(state={},action) {
         case equityConstants.SEARCH_EQUITIES_SUCCESS:
             return {
                 ...state,
-                searchData:action.data
+                equities:action.data
 
             };
         default:

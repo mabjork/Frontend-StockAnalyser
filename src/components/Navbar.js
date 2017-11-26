@@ -77,7 +77,7 @@ const LoggedInNavbar = () =>{
                         </Link>
                     </li>
                 </ul>
-                <ul className="navbar-nav ml-auto">
+                <ul className="navbar-nav ml-auto" style={{cursor:"pointer"}}>
                     <ProfileMenu/>
                 </ul>
             </div>

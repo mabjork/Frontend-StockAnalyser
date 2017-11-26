@@ -28,13 +28,23 @@ class EquityPage extends React.Component {
         this.setState({page});
         console.log(page);
         const {dispatch} = this.props;
-        dispatch(equityActions.fetchEquitiesPage(page,20))
+        //dispatch(equityActions.fetchEquitiesPage(page,20))
+        dispatch(equityActions.searchEquities(this.state.searchValue,page))
     }
+
     onSearchChanged(event){
         this.setState({searchValue:event.target.value});
         console.log(event.target.value);
+        clearTimeout(timeout);
         const {dispatch} = this.props;
-        dispatch(equityActions.searchEquities(event.target.value))
+        const value = event.target.value;
+        const page = this.state.page
+        // Make a new timeout set to go off in 800ms
+        timeout = setTimeout(function () {
+
+            dispatch(equityActions.searchEquities(value,page))
+        }, 500);
+
     }
 
     render(){
@@ -76,7 +86,7 @@ class EquityPage extends React.Component {
         );
     }
 }
-
+var timeout = null;
 
 function mapStateToProps(state) {
     return {

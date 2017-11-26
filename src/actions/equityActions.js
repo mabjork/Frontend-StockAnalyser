@@ -114,11 +114,11 @@ function fetchSectorData() {
     function success(data) { return { type: equityConstants.FETCH_SECTOR_DATA_SUCCESS,data} }
     function failure(error) { return { type: equityConstants.FETCH_SECTOR_DATA_FAILURE,error} }
 }
-function searchEquities(query){
+function searchEquities(query,page){
     return dispatch => {
         dispatch(request());
 
-        equityService.searchEquities(query)
+        equityService.searchEquities(query,page)
             .then(
                 data => {
                     dispatch(success(data))

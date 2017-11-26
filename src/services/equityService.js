@@ -67,8 +67,8 @@ function getSectorData() {
     })
 }
 
-function searchEquities(query) {
-    const url = baseUrl + "/search?query=" + query;
+function searchEquities(query,page) {
+    const url = baseUrl + "/search?query=" + query +"&page="+page;
     return axios.get(url,{headers:{'Authorization': 'Bearer '+localStorage.getItem("token")}})
         .then(res => {
             if(res.status !== 200){
