@@ -16,20 +16,19 @@ export const userService = {
 
 function login(username,password) {
     return axios.post(loginUrl,{username:username,password:password}).then(res => {
-        console.log("lolololololololololol");
+        localStorage.setItem("username",username);
         if (res.status !== 200){
             console.log("rejected");
             return Promise.reject(res.statusText);
         }
         return res.data;
     },error => {
-        console.log("hahahahahahahahah");
         return Promise.reject(error);
-    }).then(data => {
+    }).then(
+        data => {
         localStorage.setItem("token",String(data));
         return {token:String(data)};
     },error=>{
-        console.log(error);
         return Promise.reject(error)
     });
 

@@ -22,7 +22,7 @@ class EquityPage extends React.Component {
     componentWillMount(){
 
         const {dispatch} = this.props;
-        dispatch(equityActions.fetchEquitiesPage(this.state.page,20))
+        dispatch(equityActions.searchEquities(this.state.searchValue,this.state.page))
     }
     onPageChange(page) {
         this.setState({page});
@@ -38,7 +38,7 @@ class EquityPage extends React.Component {
         clearTimeout(timeout);
         const {dispatch} = this.props;
         const value = event.target.value;
-        const page = this.state.page
+        const page = this.state.page;
         // Make a new timeout set to go off in 800ms
         timeout = setTimeout(function () {
 

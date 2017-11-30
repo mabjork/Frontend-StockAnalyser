@@ -28,9 +28,8 @@ function getData(symbol,dataFunction,interval){
     })
 }
 function getEquitiesPage(page,pagelenght){
-    console.log(localStorage.getItem("token"));
 
-    const url = baseUrl + "/all"+ "?" + "page="+page+"&"+"pagelenght="+pagelenght;
+    const url = baseUrl + "/all"+ "?" + "page="+page+"&"+"pagelenght="+pagelenght+ "&username="+ localStorage.getItem("username");
     return axios.get(url,{headers:{'Authorization': 'Bearer '+localStorage.getItem("token")}}).then(res =>{
         if(res.status !== 200){
             Promise.reject(res.statusText)
@@ -39,8 +38,8 @@ function getEquitiesPage(page,pagelenght){
     })
 }
 function subscribe(symbol,username) {
-    const url = baseUrl + "/subscribe" + "/query?" + "symbol=" + symbol + "&username=" + username;
-    return axios.post(url).then(res => {
+    const url = baseUrl + "/subscribe" + "?" + "symbol=" + symbol + "&username=" + username;
+    return axios.post(url,null,{headers:{'Authorization': 'Bearer '+localStorage.getItem("token")}}).then(res => {
         if(res.status !== 200){
             Promise.reject(res.statusText);
         }
@@ -48,8 +47,8 @@ function subscribe(symbol,username) {
     })
 }
 function unsubscribe(symbol,username){
-    const url = baseUrl+ "/subscribe" + "/query?" + "symbol=" + symbol + "&username=" + username;
-    return axios.post(url).then(res => {
+    const url = baseUrl+ "/unsubscribe" + "?" + "symbol=" + symbol + "&username=" + username;
+    return axios.post(url,null,{headers:{'Authorization': 'Bearer '+localStorage.getItem("token")}}).then(res => {
         if(res.status !== 200){
             Promise.reject(res.statusText);
         }
@@ -68,7 +67,7 @@ function getSectorData() {
 }
 
 function searchEquities(query,page) {
-    const url = baseUrl + "/search?query=" + query +"&page="+page;
+    const url = baseUrl + "/search?query=" + query +"&page="+page+ "&username="+ localStorage.getItem("username");
     return axios.get(url,{headers:{'Authorization': 'Bearer '+localStorage.getItem("token")}})
         .then(res => {
             if(res.status !== 200){

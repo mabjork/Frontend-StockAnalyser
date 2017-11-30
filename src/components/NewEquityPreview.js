@@ -1,20 +1,20 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import agent from '../agent';
 import { connect} from 'react-redux';
 import {store} from "../store"
-import {equityConstants} from "../constants/equityConstants";
 import {equityActions} from "../actions/equityActions";
 import  AreaChart from "react-icons/lib/fa/area-chart"
 import EmptyStar from "react-icons/lib/fa/star-o"
 import FullStar from "react-icons/lib/fa/star"
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import EquityListInfo from "./EquityListInfo"
 
 class NewEquityPreview extends React.Component {
     constructor(props){
         super(props);
-        this.state = {favoritted:false,collapse:false}
+        console.log(props.equity);
+        this.state = {favoritted:props.equity.favorited,collapse:false}
     }
     handleSubscriptionChange(event){
         
@@ -34,9 +34,9 @@ class NewEquityPreview extends React.Component {
     };
     toggleCollapse(event){
         let newValue = !this.state.collapse;
-        this.setState({collapse:newValue})
+        this.setState({collapse:newValue});
         event.preventDefault();
-        console.log("lolololo");
+
 
     }
 
@@ -56,10 +56,7 @@ class NewEquityPreview extends React.Component {
                     <Collapse isOpen={this.state.collapse}>
                         <Card>
                             <CardBody>
-                                Anim pariatur cliche reprehenderit,
-                                enim eiusmod high life accusamus terry richardson ad squid. Nihil
-                                anim keffiyeh helvetica, craft beer labore wes anderson cred
-                                nesciunt sapiente ea proident.
+                                <EquityListInfo equity={equity}/>
                             </CardBody>
                         </Card>
                     </Collapse>
@@ -79,10 +76,7 @@ class NewEquityPreview extends React.Component {
                     <Collapse isOpen={this.state.collapse}>
                         <Card>
                             <CardBody>
-                                Anim pariatur cliche reprehenderit,
-                                enim eiusmod high life accusamus terry richardson ad squid. Nihil
-                                anim keffiyeh helvetica, craft beer labore wes anderson cred
-                                nesciunt sapiente ea proident.
+                                <EquityListInfo equity={equity}/>
                             </CardBody>
                         </Card>
                     </Collapse>
